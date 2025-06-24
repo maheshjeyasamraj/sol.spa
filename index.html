@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
  <meta charset="UTF-8" />
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,69 +35,102 @@
  <link rel="stylesheet" href="styles.css">
 </head>
 
-
 <body>
 
+<!-- Top Bar (Responsive) -->
+<style>
+  .top-bar {
+    background-color: #228B22;
+    color: white;
+    padding: 12px 20px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-<!-- Top Bar -->
-<div class="top-bar" style="
-background-color: #228B22 ;
-color: white;
-padding: 14px 30px;
-font-size: 16px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-">
-<div style="display: flex; align-items: center; gap: 40px;">
-  <span style="font-size: 17px;">
-    <i class="bi bi-envelope-fill me-2" style="font-size: 20px;"></i> info@solspa.in
-  </span>
-  <span style="font-size: 17px;">
-    <i class="bi bi-telephone-fill me-2" style="font-size: 20px;"></i> +91 90000 80000
-  </span>
+  .top-contact,
+  .top-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .top-contact span {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .top-social {
+    justify-content: flex-start;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .top-social a {
+    color: white;
+    font-size: 18px;
+  }
+
+  .book-now {
+    background-color: #5C4033 ;
+    color: #00996b;
+    padding: 6px 14px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 6px;
+  }
+
+  .book-now:hover {
+    background-color: #007a56;
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    .top-bar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+    }
+
+    .top-contact {
+      gap: 40px;
+    }
+
+    .top-social {
+      justify-content: flex-end;
+    }
+
+    .book-now {
+      margin-top: 0;
+    }
+  }
+</style>
+<div class="top-bar">
+  <div class="top-contact">
+    <span><i class="bi bi-envelope-fill"></i> solspabachupally@gmail.com</span>
+    <span><i class="bi bi-telephone-fill"></i>+91 99 66 66 45 88</span>
+  </div>
+  <div class="top-social">
+    <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    <a href="tel:+919876543210" class="book-now" aria-label="Call to book an appointment">Book Now</a>
+  </div>
 </div>
-<div style="display: flex; align-items: center; gap: 25px;">
-  <a href="#" class="top-icon" aria-label="Twitter" style="color: white; font-size: 20px;">
-    <i class="bi bi-twitter"></i>
-  </a>
-  <a href="#" class="top-icon" aria-label="Facebook" style="color: white; font-size: 20px;">
-    <i class="bi bi-facebook"></i>
-  </a>
-  <a href="#" class="top-icon" aria-label="Pinterest" style="color: white; font-size: 20px;">
-    <i class="bi bi-pinterest"></i>
-  </a>
-  <a href="#" class="top-icon" aria-label="Instagram" style="color: white; font-size: 20px;">
-    <i class="bi bi-instagram"></i>
-  </a>
-
-
-  <!-- Book Now button -->
-  <a href="tel:+919876543210"
-     aria-label="Call to book an appointment"
-     style="
-       background-color: white;
-       color: #00996b;
-       padding: 6px 16px;
-       border-radius: 25px;
-       font-weight: 600;
-       font-size: 15px;
-       text-decoration: none;
-       display: flex;
-       align-items: center;
-       gap: 6px;
-       box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-       transition: background-color 0.3s, color 0.3s;
-     "
-     onmouseover="this.style.backgroundColor='#007a56'; this.style.color='white';"
-     onmouseout="this.style.backgroundColor='white'; this.style.color='#00996b';">
-     Book Now
-  </a>
-</div>
-</div>
-
-
 
 
 <!-- Navbar -->
@@ -142,232 +173,168 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
 </style>
 
 
- <style>
-   * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-   }
-   body, html {
-     height: 100%;
-     font-family: 'Montserrat', sans-serif;
-   }
-   .hero {
-     position: relative;
-     height: 100vh;
-     overflow: hidden;
-   }
-   .slide {
-     position: absolute;
-     top: 0; left: 0;
-     width: 100%; height: 100%;
-     background-size: cover;
-     background-position: center;
-     opacity: 0;
-     transition: opacity 1s ease-in-out;
-   }
-   .slide.active {
-     opacity: 1;
-     z-index: 1;
-   }
-.hero-content {
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- text-align: center;
- color: #fff;
- z-index: 3;
- opacity: 0;
- pointer-events: none;
- transition: opacity 1.5s ease-in-out;
-}
-.hero-content.active {
- opacity: 1;
- pointer-events: auto;
-}
-   .hero-content h1 {
-     font-family: 'Great Vibes', cursive;
-     font-size: 3.5rem;
-     font-weight: 500;
-     margin-bottom: 0.5rem;
-   }
-   .hero-content p {
-     font-size: 1.3rem;
-     font-weight: 400;
-     margin-bottom: 1.5rem;
-   }
-   .hero-content button {
-     padding: 12px 28px;
-     background-color: rgba(255, 255, 255, 0.2);
-     border: 1px solid #fff;
-     color: #fff;
-     font-size: 1rem;
-     cursor: pointer;
-     transition: background-color 0.3s ease;
-     border-radius: 30px;
-   }
-   .hero-content button:hover {
-     background-color: rgba(255, 255, 255, 0.4);
-   }
-   @media (max-width: 768px) {
-     .hero-content h1 {
-       font-size: 2.5rem;
-     }
-     .hero-content p {
-       font-size: 1rem;
-     }
-     .hero-content button {
-       font-size: 0.9rem;
-       padding: 10px 20px;
-     }
-   }
- </style>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; font-family: 'Montserrat', sans-serif; }
 
+    .hero { position: relative; height: 100vh; overflow: hidden; }
 
-<!-- GSAP CDN -->
+    .slide {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1s ease-in-out;
+    }
+    .slide.active { opacity: 1; z-index: 1; }
+
+    .overlay {
+      position: absolute; top: 0; left: 0;
+      height: 100%; width: 100%;
+      background: rgba(0, 0, 0, 0.4); z-index: 2;
+    }
+
+    .hero-content {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center; color: #fff; z-index: 3;
+      opacity: 0; pointer-events: none;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .hero-content.active {
+      opacity: 1; pointer-events: auto;
+    }
+
+    .hero-content h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 5rem; font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .hero-content p { font-size: 1.3rem; margin-bottom: 1.5rem; }
+
+    .hero-content button {
+      padding: 12px 28px; background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid #fff; color: #fff; font-size: 1rem;
+      cursor: pointer; border-radius: 30px;
+      transition: background-color 0.3s ease;
+    }
+    .hero-content button:hover { background-color: rgba(255, 255, 255, 0.4); }
+    .hero-content button:focus { outline: 2px solid #fff; }
+
+    nav.dots {
+      position: absolute; bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 10px; z-index: 4;
+    }
+    .dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none; cursor: pointer; transition: background-color 0.3s ease;
+    }
+    .dot.active, .dot:focus { background-color: #fff; }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 3rem; }
+      .hero-content p { font-size: 1rem; }
+      .hero-content button { font-size: 0.9rem; padding: 10px 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <!-- Slides -->
+    <div class="slide active" style="background-image: url('hero-bg1.webp');"></div>
+    <div class="slide" style="background-image: url('hero-bg2.webp');"></div>
+    <div class="slide" style="background-image: url('hero-bg3.webp');"></div>
+    <div class="slide" style="background-image: url('hero-bg4.webp');"></div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Text Blocks -->
+    <div class="hero-content active" aria-live="polite">
+      <p>NOURISH YOUR SOUL</p>
+      <h1>Therapies</h1>
+      <button>Discover More</button>
+    </div>
+
+    <div class="hero-content" aria-live="polite">
+      <p>FEEL EVERY KNOT MELT AWAY</p>
+      <h1>Massages</h1>
+      <button>Discover More</button>
+    </div>
+
+    <div class="hero-content" aria-live="polite">
+      <p>WRAP YOURSELF IN PURE INDULGENCE</p>
+      <h1>Body Wraps</h1>
+      <button>Discover More</button>
+    </div>
+
+    <div class="hero-content" aria-live="polite">
+      <p>REVEAL RADIANCE FROM WITHIN</p>
+      <h1>Body Scrubs</h1>
+      <button>Discover More</button>
+    </div>
+
+    <!-- Navigation Dots -->
+    <nav class="dots" aria-label="Hero Slider Navigation">
+      <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+      <button class="dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="dot" data-index="2" aria-label="Slide 3"></button>
+      <button class="dot" data-index="3" aria-label="Slide 4"></button>
+    </nav>
+  </section>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const contents = document.querySelectorAll('.hero-content');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    const interval = 4000;
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      contents.forEach(content => gsap.set(content, { opacity: 0 }));
+
+      slides[index].classList.add('active');
+      gsap.to(contents[index], { opacity: 1, duration: 1.5, ease: 'power2.out' });
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    let slideTimer = setInterval(nextSlide, interval);
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(slideTimer);
+        current = parseInt(dot.getAttribute('data-index'));
+        showSlide(current);
+        slideTimer = setInterval(nextSlide, interval);
+      });
+    });
+
+    window.addEventListener('load', () => {
+      gsap.to(contents[0], { opacity: 1, duration: 1.5, ease: 'power2.out' });
+    });
+  </script>
+<!-- GSAP + ScrollTrigger CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-
-<style>
- .overlay {
-   position: absolute;
-   top: 0;
-   left: 0;
-   height: 100%;
-   width: 100%;
-   background: rgba(0, 0, 0, 0.4);
-   z-index: 2;
- }
-</style>
-
-
-<section class="hero">
- <!-- Slides -->
- <div class="slide active" style="background-image: url('hero-bg1.webp');"></div>
- <div class="slide" style="background-image: url('hero-bg2.webp');"></div>
- <div class="slide" style="background-image: url('hero-bg3.webp');"></div>
- <div class="slide" style="background-image: url('hero-bg4.webp');"></div>
-
-
- <!-- Overlay -->
- <div class="overlay"></div>
-
-
- <!-- Text Blocks -->
- <div class="hero-content active">
-   <p>NOURISH YOUR SOUL</p>
-   <h1 style="font-size: 9rem;" >Therapies</h1>
-   <button>Discover More</button>
- </div>
-
-
- <div class="hero-content">
-   <p>FEEL EVERY KNOT MELT AWAY</p>
-   <h1 style="font-size: 9rem;" >Massages</h1>
-   <button>Discover More</button>
- </div>
-
-
- <div class="hero-content">
-   <p>WRAP YOURSELF IN PURE INDULGENCE</p>
-   <h1 style="font-size: 9rem;" >Body Wraps</h1>
-   <button>Discover More</button>
- </div>
-
-
- <div class="hero-content">
-   <p>REVEAL RADIANCE FROM WITHIN</p>
-   <h1 style="font-size: 9rem;" >Body Scrubs</h1>
-   <button>Discover More</button>
- </div>
-
-
-  <!-- Navigation Dots -->
- <div class="dots">
-   <div class="dot active" data-index="0"></div>
-   <div class="dot" data-index="1"></div>
-   <div class="dot" data-index="2"></div>
-   <div class="dot" data-index="3"></div>
- </div>
-</section>
-
-
-<script>
- const slides = document.querySelectorAll('.slide');
- const contents = document.querySelectorAll('.hero-content');
- const dots = document.querySelectorAll('.dot');
- let current = 0;
- const interval = 4000;
-
-
- function showSlide(index) {
-   // Reset all slides and texts
-   slides.forEach(slide => slide.classList.remove('active'));
-   contents.forEach(content => gsap.set(content, { opacity: 0 }));
-
-
-   // Set active slide
-   slides[index].classList.add('active');
-
-
-   // Animate content in
-   gsap.to(contents[index], { opacity: 1, duration: 1.5, ease: 'power2.out' });
-
-
-   // Update dots
-   dots.forEach(dot => dot.classList.remove('active'));
-   dots[index].classList.add('active');
- }
-
-
- function nextSlide() {
-   current = (current + 1) % slides.length;
-   showSlide(current);
- }
-
-
- let slideTimer = setInterval(nextSlide, interval);
-
-
- // Dot click event
- dots.forEach(dot => {
-   dot.addEventListener('click', () => {
-     clearInterval(slideTimer);
-     current = parseInt(dot.getAttribute('data-index'));
-     showSlide(current);
-     slideTimer = setInterval(nextSlide, interval);
-   });
- });
-
-
- // Initial animation
- window.addEventListener('load', () => {
-   gsap.to(contents[0], { opacity: 1, duration: 1.5, ease: 'power2.out' });
- });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 
 <style>
     :root {
-        --solspa-green: #00996b;
+        --solspa-main: #5C4033; /* Dark Brown */
+        --solspa-green: #228B22; /* Forest Green */
         --solspa-accent: #0b0b0b;
         --solspa-text: #333333;
     }
@@ -388,7 +355,7 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 80px 40px;
+        padding: 60px 20px;
         gap: 40px;
         flex-wrap: wrap;
     }
@@ -397,7 +364,7 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
         flex: 1 1 450px;
         background-color: var(--solspa-accent);
         position: relative;
-        padding: 20px;
+        padding: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -405,118 +372,123 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
 
     .about-left img {
         width: 100%;
-        max-width: 500px;
-        border-radius: 5px;
+        max-width: 400px;
+        border-radius: 8px;
     }
 
     .about-right {
         flex: 1 1 450px;
         max-width: 600px;
-        animation: sunriseFade 1.5s ease forwards;
-        opacity: 0;
-    }
-
-    .about-right.active {
-        opacity: 1;
     }
 
     .about-right h4 {
-        color: #00996b;
+        color: var(--solspa-green);
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
         margin-bottom: 10px;
-        font-weight: normal;
-        font-size: 18px;
+        font-weight: 500;
+        font-size: 16px;
     }
 
     .about-right h2 {
         font-family: 'Playfair Display', serif;
-        font-size: 52px;
+        font-size: 40px;
         margin-bottom: 20px;
+        color: var(--solspa-main);
+        line-height: 1.2;
     }
 
     .about-right p {
-        font-size: 18px;
-        line-height: 1.7;
-        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        text-align: left;
     }
 
     .offers {
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px;
     }
 
     .offer-box {
-        flex: 1 1 200px;
+        flex: 1 1 100%;
         display: flex;
         align-items: flex-start;
-        gap: 15px;
+        gap: 12px;
     }
 
     .offer-box svg {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         flex-shrink: 0;
         color: var(--solspa-green);
     }
 
     .offer-box p {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: left;
     }
 
     .offer-btn {
-        margin-top: 30px;
-        padding: 12px 24px;
+        margin-top: 25px;
+        padding: 10px 22px;
         background-color: var(--solspa-green);
         color: white;
         border: none;
         border-radius: 30px;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 12px rgba(0, 153, 107, 0.3);
+        box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
     }
 
     .offer-btn:hover {
-        background-color: #007a56;
+        background-color: #1e7a1e;
         transform: scale(1.05);
-    }
-
-    @keyframes sunriseFade {
-        0% {
-            transform: translateY(60px) scale(0.95);
-            opacity: 0;
-            filter: brightness(80%) blur(2px);
-        }
-        60% {
-            opacity: 0.8;
-            filter: brightness(100%) blur(0.5px);
-        }
-        100% {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            filter: brightness(100%) blur(0);
-        }
     }
 
     @media (max-width: 768px) {
         .about-section {
             flex-direction: column;
-            padding: 40px 20px;
+            padding: 40px 15px;
         }
 
         .about-left img {
             max-width: 100%;
         }
 
+        .about-right h4 {
+            font-size: 14px;
+        }
+
         .about-right h2 {
-            font-size: 32px;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .about-right p {
+            font-size: 14px;
         }
 
         .offer-box {
-            flex: 1 1 100%;
+            gap: 10px;
+        }
+
+        .offer-box svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .offer-box p {
+            font-size: 14px;
+        }
+
+        .offer-btn {
+            font-size: 14px;
+            padding: 10px 20px;
         }
     }
 </style>
@@ -524,54 +496,96 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
 <section class="about-section" id="about">
     <!-- Left Side -->
     <div class="about-left">
-        <img src="about.webp" alt="Relaxing Spa">
+        <img src="about.webp" alt="Relaxing Spa" class="fade-up">
     </div>
 
     <!-- Right Side -->
-    <div class="about-right" id="aboutRight">
+    <div class="about-right fade-up">
         <h4>WELCOME TO SOL SPA</h4>
         <h2>Step into a haven of <br> peace and pampering.</h2>
-        <p style="text-align: left;">
+        <p>
             We offer a range of carefully curated treatments and therapies designed to nourish both your inner & outer self.
             From soothing massages & luxurious facials, our expert team is here to help you achieve your wellness goals.
         </p>
 
-        <div class="offers">
-
+        <div class="offers fade-up">
             <!-- First Offer -->
             <div class="offer-box">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="#00996b" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="10" y="20" width="44" height="34" rx="4" ry="4" fill="none" />
                     <path d="M32 20v34M10 32h44" />
                     <path d="M20 20c0-5 5-8 10-6 2 1 2 4 2 6s0-5 2-6c5-2 10 1 10 6" />
                 </svg>
-                <p style="text-align: left;">
+                <p>
                     <strong>New Guest Welcome:</strong> <br> Enjoy <strong>20% OFF</strong> on your first 90-minutes spa treatment — a perfect way to experience our signature care.
                 </p>
             </div>
 
             <!-- Second Offer -->
             <div class="offer-box">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="#00996b" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="10" y="20" width="44" height="34" rx="4" ry="4" fill="none" />
                     <path d="M32 20v34M10 32h44" />
                     <path d="M20 20c0-5 5-8 10-6 2 1 2 4 2 6s0-5 2-6c5-2 10 1 10 6" />
                 </svg>
-                <p style="text-align: left;">
+                <p>
                     <strong>Membership Plans:</strong> <br> Commit to your wellness and save up to <strong>60%</strong> with our exclusive monthly packages and loyalty rewards.
                 </p>
             </div>
-
         </div>
 
-        <button class="offer-btn">Book Your Appointment</button>
+        <button class="offer-btn fade-up">Book Your Appointment</button>
     </div>
 </section>
 
+<script>
+    // Initialize GSAP ScrollTrigger Animations
+    gsap.registerPlugin(ScrollTrigger);
 
+    gsap.utils.toArray('.fade-up').forEach(element => {
+        gsap.from(element, {
+            opacity: 0,
+            y: 50,
+            scale: 0.95,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: element,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            }
+        });
+    });
+</script>
 
 
 <style>
+    :root {
+        --solspa-main: #5C4033; /* Dark Brown */
+        --solspa-green: #228B22; /* Forest Green */
+    }
+
+    .services {
+        padding: 40px 20px;
+    }
+
+    .services .section-title {
+        color: var(--solspa-green);
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .services h2 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        font-size: 48px;
+        color: var(--solspa-main);
+        margin-bottom: 40px;
+    }
+
     .service-card {
         background-color: white;
         border-radius: 20px;
@@ -584,22 +598,31 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
         transform: translateY(-10px);
     }
 
-    .service-img-circle {
+    /* Hexagon Image Style */
+    .hexagon {
         width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 3px solid #007a56;
+        height: 69.28px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        margin: 0 auto 15px;
+        transition: transform 0.3s ease;
+        clip-path: polygon(
+            50% 0%,
+            93% 25%,
+            93% 75%,
+            50% 100%,
+            7% 75%,
+            7% 25%
+        );
     }
 
-    .service-img-circle img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .service-card:hover .hexagon {
+        transform: scale(1.1);
     }
 
     .service-icon {
-        background-color: #007a56;
+        background-color: var(--solspa-green);
         width: 50px;
         height: 50px;
         line-height: 50px;
@@ -612,6 +635,7 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
     h4 {
         font-family: 'Playfair Display', serif;
         font-weight: 600;
+        color: var(--solspa-main);
     }
 
     .text-muted {
@@ -619,30 +643,43 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
         color: #666;
     }
 
+    /* Mobile Responsive */
     @media (max-width: 768px) {
-        h2 {
+        .services h2 {
             font-size: 32px !important;
         }
 
         .text-muted {
             font-size: 16px;
         }
+
+        .hexagon {
+            width: 90px;
+            height: 52px;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            line-height: 40px;
+        }
     }
 </style>
 
-<section class="services" id="services" style="margin-top: 40px; padding-top: 30px;">
+
+<section class="services" id="services">
     <div class="text-center mb-5">
-        <div class="text-uppercase" style="color: #007a56; font-weight: 600; letter-spacing: 1px;">Our Treatments</div>
-        <h2 style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 50px;">What We’re Offering</h2>
+        <div class="section-title">Our Treatments</div>
+        <h2>What We’re Offering</h2>
     </div>
 
     <div class="container">
         <div class="row text-center justify-content-center">
+
             <div class="col-md-4 mb-4">
-                <div class="service-card p-4">
-                    <div class="service-img-circle mx-auto mb-3">
-                        <img src="FacialCare.webp" alt="Facial Care">
-                    </div>
+                <div class="service-card p-4 fade-up">
+                    <div class="hexagon" style="background-image: url('FacialCare.webp');"></div>
                     <div class="service-icon mb-3"><i class="bi bi-emoji-smile"></i></div>
                     <h4 class="mb-2">Facial Care</h4>
                     <p class="text-muted">We understand that each individual has unique skincare needs. That’s why we proudly offer a diverse selection of facial treatments to address a wide range of concerns.</p>
@@ -650,10 +687,8 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
             </div>
 
             <div class="col-md-4 mb-4">
-                <div class="service-card p-4">
-                    <div class="service-img-circle mx-auto mb-3">
-                        <img src="Spa Therapies.webp" alt="Spa Treatments">
-                    </div>
+                <div class="service-card p-4 fade-up">
+                    <div class="hexagon" style="background-image: url('Spa Therapies.webp');"></div>
                     <div class="service-icon mb-3"><i class="bi bi-person-hearts"></i></div>
                     <h4 class="mb-2">Spa Treatments</h4>
                     <p class="text-muted">At Signature Spa, we take pride in offering a diverse range of spa treatments designed to cater to your unique needs and preferences.</p>
@@ -661,18 +696,20 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
             </div>
 
             <div class="col-md-4 mb-4">
-                <div class="service-card p-4">
-                    <div class="service-img-circle mx-auto mb-3">
-                        <img src="hero-bg3.webp" alt="Body Scrubs">
-                    </div>
+                <div class="service-card p-4 fade-up">
+                    <div class="hexagon" style="background-image: url('hero-bg3.webp');"></div>
                     <div class="service-icon mb-3"><i class="bi bi-flower1"></i></div>
                     <h4 class="mb-2">Body Scrubs</h4>
                     <p class="text-muted">Our spa is proud to offer a diverse array of body scrub treatments, each designed to provide a unique and rejuvenating experience.</p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
+
+
 
 
 <style>
@@ -816,78 +853,173 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
 }
  </style>
 
+<style>
+    :root {
+        --solspa-main: #5C4033; /* Dark Brown */
+        --solspa-green: #228B22; /* Forest Green */
+        --solspa-light-green: rgba(34, 139, 34, 0.05); /* Light Green Tint */
+    }
 
- <section style="padding: 60px 20px; background: rgba(0, 153, 107, 0.3);;">
- <!-- Top Two-Column Section -->
- <div style="display: flex; flex-wrap: wrap; max-width: 1200px; margin: 0 auto 60px; align-items: center; justify-content: space-between;">
+    .popular-section {
+        padding: 60px 20px;
+        background: var(--solspa-light-green);
+    }
 
+    .popular-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto 60px;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-   <!-- Left Side: Headings -->
-   <div style="flex: 1 1 400px; min-width: 250px; margin-bottom: 20px;">
-     <p style="color: #007a56; letter-spacing: 2px; font-weight: 600; margin-bottom: 10px;">A JOURNEY OF PURE BLISS AWAITS</p>
-     <h2 style="font-size: 36px; margin-bottom: 0; color: #000000;"><strong> Most Popular Services</h2> </strong>
-   </div>
+    .popular-heading {
+        flex: 1 1 400px;
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
 
+    .popular-heading p {
+        color: var(--solspa-green);
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
 
-   <!-- Right Side: Paragraph -->
-   <div style="flex: 1 1 500px; min-width: 300px; margin-bottom: 20px; ">
-     <p style="color: #666; font-size: 16px; line-height: 1.7;">
-      Dive deep into the art of well-being with SOL SPA’s luxurious therapies and exclusive experiences.
-      Whether you seek to escape the daily hustle or rediscover your inner harmony, these sessions offer the perfect sanctuary for your mind, body, and soul.
-    </p>
-   </div>
- </div>
+    .popular-heading h2 {
+        font-size: 36px;
+        margin-bottom: 0;
+        color: var(--solspa-main);
+    }
 
-<!-- Services Cards Section -->
-<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto;">
+    .popular-description {
+        flex: 1 1 500px;
+        min-width: 300px;
+        margin-bottom: 20px;
+    }
 
-  <!-- Massages Card -->
-  <div style="background: #fff; padding: 30px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex: 1 1 220px; text-align: center;">
-    <div style="margin-bottom: 20px;">
-      <img src="hero-bg1.webp" alt="Massage" style="width: 80px; height: 80px; object-fit: contain;">
+    .popular-description p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .service-cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .service-card {
+        background: #fff;
+        padding: 30px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        flex: 1 1 220px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: var(--solspa-main);
+    }
+
+    .service-card p {
+        color: #666;
+        font-size: 15px;
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+        .popular-heading h2 {
+            font-size: 28px;
+        }
+
+        .popular-description p {
+            font-size: 14px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+        }
+    }
+</style>
+
+<section class="popular-section">
+    <!-- Top Two-Column Section -->
+    <div class="popular-container">
+
+        <!-- Left Side: Headings -->
+        <div class="popular-heading">
+            <p>A JOURNEY OF PURE BLISS AWAITS</p>
+            <h2><strong>Most Popular Services</strong></h2>
+        </div>
+
+        <!-- Right Side: Paragraph -->
+        <div class="popular-description">
+            <p>
+                Dive deep into the art of well-being with SOL SPA’s luxurious therapies and exclusive experiences.
+                Whether you seek to escape the daily hustle or rediscover your inner harmony, these sessions offer the
+                perfect sanctuary for your mind, body, and soul.
+            </p>
+        </div>
     </div>
-    <h3 style="font-size: 20px; margin-bottom: 15px;">Massages</h3>
-    <p style="color: #666; font-size: 15px;">
-      Deep Tissue, Aromatherapy, Swedish Classic, Hot Stone, Warm Bamboo, Herbal Potli & more.
-    </p>
-  </div>
 
-  <!-- Body Scrubs & Wraps Card -->
-  <div style="background: #fff; padding: 30px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex: 1 1 220px; text-align: center;">
-    <div style="margin-bottom: 20px;">
-      <img src="hero-bg2.webp" alt="Body Scrubs & Wraps" style="width: 80px; height: 80px; object-fit: contain;">
+    <!-- Services Cards Section -->
+    <div class="service-cards">
+
+        <!-- Massages Card -->
+        <div class="service-card">
+            <img src="hero-bg1.webp" alt="Massage">
+            <h3>Massages</h3>
+            <p>Deep Tissue, Aromatherapy, Swedish Classic, Hot Stone, Warm Bamboo, Herbal Potli & more.</p>
+        </div>
+
+        <!-- Body Scrubs & Wraps Card -->
+        <div class="service-card">
+            <img src="hero-bg2.webp" alt="Body Scrubs & Wraps">
+            <h3>Body Scrubs & Wraps</h3>
+            <p>Mineral Salt, Almond, Neem Tulasi, Peppermint Cooling Scrubs, Almond Clay, and Mud Wraps.</p>
+        </div>
+
+        <!-- Spa Facials Card -->
+        <div class="service-card">
+            <img src="hero-bg3.webp" alt="Spa Facials">
+            <h3>Spa Facials</h3>
+            <p>Avantika Signature, Organic, Anti-Aging, Deep Cleansing, and Fruit Facials for radiant skin.</p>
+        </div>
+
+        <!-- Exclusive Therapies Card -->
+        <div class="service-card">
+            <img src="hero-bg4.webp" alt="Exclusive Therapies">
+            <h3>Exclusive Therapies</h3>
+            <p>Signature Jet Lag Recovery, Soulmate Couple Massage, and Four-Hand Full Body Massages.</p>
+        </div>
+
     </div>
-    <h3 style="font-size: 20px; margin-bottom: 15px;">Body Scrubs & Wraps</h3>
-    <p style="color: #666; font-size: 15px;">
-      Mineral Salt, Almond, Neem Tulasi, Peppermint Cooling Scrubs, Almond Clay, and Mud Wraps.
-    </p>
-  </div>
-
-  <!-- Spa Facials Card -->
-  <div style="background: #fff; padding: 30px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex: 1 1 220px; text-align: center;">
-    <div style="margin-bottom: 20px;">
-      <img src="hero-bg3.webp" alt="Spa Facials" style="width: 80px; height: 80px; object-fit: contain;">
-    </div>
-    <h3 style="font-size: 20px; margin-bottom: 15px;">Spa Facials</h3>
-    <p style="color: #666; font-size: 15px;">
-      Avantika Signature, Organic, Anti-Aging, Deep Cleansing, and Fruit Facials for radiant skin.
-    </p>
-  </div>
-
-  <!-- Exclusive Therapies Card -->
-  <div style="background: #fff; padding: 30px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); flex: 1 1 220px; text-align: center;">
-    <div style="margin-bottom: 20px;">
-      <img src="hero-bg4.webp" alt="Exclusive Therapies" style="width: 80px; height: 80px; object-fit: contain;">
-    </div>
-    <h3 style="font-size: 20px; margin-bottom: 15px;">Exclusive Therapies</h3>
-    <p style="color: #666; font-size: 15px;">
-      Signature Jet Lag Recovery, Soulmate Couple Massage, and Four-Hand Full Body Massages.
-    </p>
-  </div>
-
-</div>
 </section>
-
 
 
 
@@ -1050,6 +1182,9 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+html {
+    scroll-behavior: smooth;
+}
 
 
  </style>
@@ -1061,16 +1196,17 @@ letter-spacing: 1px;              /* Optional: add some spacing between letters 
    <div class="offer-card">
      <img src="Int2.jpeg" alt="Beauty Treatment">
      <div class="discount-badge">20%<br>OFF</div>
-     <div class="offer-text">Beauty<br>Treatment</div>
-     <button class="offer-button">BOOK NOW</button>
+<li class="offer-button"><a href="#contact">BOOK NOW</a></li>
    </div>
+
 
 
    <!-- Right Card -->
    <div class="offer-card">
      <img src="Int1.jpeg" alt="Spa Massage">
      <div class="discount-badge">20%<br>OFF</div>
-     <button class="offer-button">BOOK NOW</button>
+    <li class="offer-button"><a href="#contact">BOOK NOW</a></li>
+
    </div>
  </div>
 
